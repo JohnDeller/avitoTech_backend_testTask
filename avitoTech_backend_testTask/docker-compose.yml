@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  todo-app:
+  avitoTech_backend_testTask:
     build: ./
     command: ./wait-for-postgres.sh db ./avitoTech_backend_testTask
     ports:
