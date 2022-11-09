@@ -11,7 +11,7 @@ migrate для быстрого запуска файлов up и down (папк
 Реализовано:
   Зачисление средств на баланс пользователя (если пользователя в БД нет - он создаётся, если есть - обновляется)
   
- POST  avitoTech_backend_testTask:8000/usr/user-balance
+ POST  localhost:8000/usr/user-balance
   
   входной JSON
     {
@@ -26,7 +26,7 @@ migrate для быстрого запуска файлов up и down (папк
   
   Резервирование средств 
   
- POST  avitoTech_backend_testTask:8000/reserve/reserve-funds
+ POST  localhost:8000/reserve/reserve-funds
   
   
    входной JSON
@@ -44,7 +44,7 @@ migrate для быстрого запуска файлов up и down (папк
     "user_id": 1
 }
   Разрезервирование средств
-POST  avitoTech_backend_testTask:8000/reserve/unreserve-funds
+POST  localhost:8000/reserve/unreserve-funds
    входной JSON
   {
     "id":2,
@@ -60,7 +60,7 @@ POST  avitoTech_backend_testTask:8000/reserve/unreserve-funds
     "reserve_id": 2
 }
   Признание выручки
- POST  avitoTech_backend_testTask:8000/reserve/confirm-profit
+ POST  localhost:8000/reserve/confirm-profit
    
    входной JSON
   {
@@ -79,7 +79,7 @@ POST  avitoTech_backend_testTask:8000/reserve/unreserve-funds
 }
   Получение баланса пользователя
   
-GET  avitoTech_backend_testTask:8000/usr/user-balance/1
+GET localhost:8000/usr/user-balance/1
   
    выходной JSON
  500
@@ -99,7 +99,7 @@ GET  avitoTech_backend_testTask:8000/usr/user-balance/1
     "message": "balance below zero"
 }
 
-avitoTech_backend_testTask:8000/reserve/reserve-funds
+localhost:8000/reserve/reserve-funds
 
  входной JSON
 {
@@ -117,4 +117,4 @@ avitoTech_backend_testTask:8000/reserve/reserve-funds
 
 При резервировании создаются экземпляры сущностей заказа и операции резервирования, 
 при разрезервировании или признании выручки - экземпляр сущности резервирования удаляется, а экземпляр заказа - 
-остаётся (можно удалить так:POST  avitoTech_backend_testTask:8000/orders/delete-orders входной JSON { "id":}
+остаётся (можно удалить так:POST  localhost:8000/orders/delete-orders входной JSON { "id":}
